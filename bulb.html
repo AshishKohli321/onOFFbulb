@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>On Off bulb</title>
+    <style>
+        body{
+            margin: opx;
+            padding: 0px;
+        }
+    h1{
+        text-align: center;
+        margin-top: 40px;
+        text-transform: uppercase;
+         }
+    .lightapp{
+        width:100%;
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    figcaption{
+        text-align: center;
+    }
+    .onoffbtn{
+        width:100%;
+        display: flex;
+        margin-top:-50px;
+        justify-content: center;
+        align-items: center;
+    }
+    .switch{
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 34px;
+    }
+
+    .slider{
+        position: absolute;
+        cursor: pointer;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: brown;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider::before{
+        position: absolute;
+        content: "";
+        width: 28px;
+        height: 26px;
+        left:4px;
+        bottom: 4px;
+        border-radius: 20%;
+        background-color:white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    input:checked +.slider{
+        background-color: #2196F3;
+    }
+    input:focus +.slider{
+        box-shadow: #219621;
+    }
+    input:checked +.slider::before{
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+    </style>
+</head>
+<body>
+    <h1 id="bulbdata">LIGHTS ON OFF </h1>
+    <br>
+    <main class="lightapp">
+        <figure>
+            <img src="off.jpg" id="lightid1" onclick="lights()">
+            <figcaption>LIGHTS ON OFF</figcaption>
+        </figure>
+
+        <figure>
+            <img src="off.jpg" id="lightid2" onclick="lights()">
+            <figcaption>LIGHTS ON OFF</figcaption>
+        </figure>
+
+        <figure>
+            <img src="off.jpg" id="lightid3" onclick="lights()">
+            <figcaption>LIGHTS ON OFF</figcaption>
+        </figure>
+
+        <figure>
+            <img src="off.jpg" id="lightid4"1>
+            <figcaption>LIGHTS ON OFF</figcaption>
+        </figure>
+
+        <figure>
+            <img src="off.jpg" id="lightid5">
+            <figcaption>LIGHTS ON OFF</figcaption>
+        </figure>
+    </main>
+    <div class="onoffbtn">
+        <label class="switch">
+            <input type="checkbox"> <span class="slider" onclick="lights()"></span>
+        </label>
+    </div>
+
+    <script>
+    function lights(){
+        for(x=1; x<6; x++){
+        let bid= document.getElementById('lightid'.concat(x));
+
+        if(bid.src.match('on.jpg')){
+            bid.src="off.jpg";
+        }else{
+            bid.src="on.jpg";  
+        }
+    }
+    }
+    
+    </script>
+</body>
+</html>
